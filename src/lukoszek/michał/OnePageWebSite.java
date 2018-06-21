@@ -21,7 +21,8 @@ public class OnePageWebSite extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         if (name != null) {
-            response.getWriter().printf("Hello %s", name);
+            response.setContentType("text/xml");
+            response.getWriter().printf("<name>Hello %s</name>", name);
         } else {
             response.getWriter().write("Please enter a name");
         }
